@@ -1,0 +1,49 @@
+
+
+.fade-description {
+  line-height: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fade-description-lines{
+  height: calc(3 * 25px);
+}
+
+.fade-description-user-home{
+  height: calc(3 * 25px);
+}
+
+.fade-description-user-show-home-unset{
+  height:unset;
+}
+
+
+.fade-description::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: 25px;
+  background: linear-gradient(90deg, transparent, white);
+}
+
+
+
+.blog-image{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.slider-styles{
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px){
+   .blog-image{
+    width:100%;
+    height: unset;
+   }
+}
