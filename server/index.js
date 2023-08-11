@@ -46,7 +46,7 @@ app.use(mongooseSanitize());
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cors({
-  origin:"https://reader-mern-web-app-gi6y-osjw2gzgs-geekkycoder.vercel.app",
+  origin:"https://reader-mern-web-app-gi6y.vercel.app",
   credentials:true
 }));
 app.use(fileUpload({ useTempFiles: true }));
