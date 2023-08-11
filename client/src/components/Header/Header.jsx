@@ -13,13 +13,14 @@ import {
   Button,
 } from "@mui/material";
 
-import { LogoText } from "./Header.styles";
+import { LogoText, StyledToolbar } from "./Header.styles";
 
 import { currentUserSelector } from "../../store/user/userSelector";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_USER_LOGOUT } from "../../store/user/user.actions";
 
 import { TOGGLE_ISMODALOPEN } from "../../store/blogs/blogs.actions";
+
 import axios from "axios";
 
 const Header = () => {
