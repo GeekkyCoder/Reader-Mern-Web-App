@@ -110,7 +110,7 @@ const UserBlogsHome = ({
     if (shouldDelete) {
       try {
         const { data } = await axios.delete(
-          `https://reader-blogging-web.onrender.com/api/v1/posts/deletePost?post=${postId}`,
+          `https://reader-mern-web-app.vercel.app/api/v1/posts/deletePost?post=${postId}`,
           {
             withCredentials: true,
           }

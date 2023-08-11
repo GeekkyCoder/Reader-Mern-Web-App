@@ -18,8 +18,6 @@ import {
   styled,
 } from "@mui/material";
 
-import { tooltipClasses } from "@mui/material/Tooltip";
-
 import { FormContainer, InputField } from "./ArticlesModalStyles";
 
 import { LoadingButton } from "@mui/lab";
@@ -92,7 +90,7 @@ const ArticlesModals = ({ setFetchNewOnCreate }) => {
     dispatch(SET_IS_LOADING());
     try {
       await axios.post(
-        "https://reader-blogging-web.onrender.com/api/v1/posts/createPost",
+        "https://reader-mern-web-app.vercel.app/api/v1/posts/createPost",
         payload,
         {
           withCredentials: true,
@@ -181,9 +179,7 @@ const ArticlesModals = ({ setFetchNewOnCreate }) => {
         fullScreen
         fullWidth={true}
         maxWidth="lg"
-        //   TransitionComponent={Transition}
         keepMounted
-        //   onClose={}
       >
         <DialogTitle>{"Create A Blog"}</DialogTitle>
         <Divider />

@@ -9,8 +9,6 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
-import { useNavigate } from "react-router-dom";
-
 import { LoadingButton } from "@mui/lab";
 
 import {
@@ -62,7 +60,7 @@ export const Signup = ({handleShowAuth}) => {
     setIsLoading(true)
     try {
       const { data } = await axios.post(
-        "https://reader-blogging-web.onrender.com/api/v1/auth/register",
+        "https://reader-mern-web-app.vercel.app/api/v1/auth/register",
         userObj,{
           withCredentials:true
         }

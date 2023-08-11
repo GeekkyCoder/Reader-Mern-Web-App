@@ -67,7 +67,7 @@ const ProfileSettings = () => {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        "https://reader-blogging-web.onrender.com/api/v1/auth/uploadUserProfileImage",
+        "https://reader-mern-web-app.vercel.app/api/v1/auth/uploadUserProfileImage",
         formData,{
           withCredentials:true
         }
@@ -104,7 +104,7 @@ const ProfileSettings = () => {
 
       dispatch(FETCH_USER_START());
       try {
-        const { data } = await axios.patch("https://reader-blogging-web.onrender.com/api/v1/auth/updateuser", userObj,{
+        const { data } = await axios.patch("https://reader-mern-web-app.vercel.app/api/v1/auth/updateuser", userObj,{
           withCredentials:true
         });
         dispatch(FETCH_USER_SUCCESS(data));

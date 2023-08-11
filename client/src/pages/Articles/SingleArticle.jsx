@@ -88,7 +88,7 @@ const SingleArticle = () => {
     const fetchSingleBlogPost = async () => {
       try {
         const { data } = await axios.get(
-          `https://reader-blogging-web.onrender.com/api/v1/posts/blogs?post=${newBlogId}`,
+          `https://reader-mern-web-app.vercel.app/api/v1/posts/blogs?post=${newBlogId}`,
           {
             withCredentials: true,
           }
@@ -113,7 +113,7 @@ const SingleArticle = () => {
     setIsLikeClicked(true);
     try {
       const { data } = await axios.patch(
-        `https://reader-blogging-web.onrender.com/api/v1/posts/likepost?post=${blogId}`,
+        `https://reader-mern-web-app.vercel.app/api/v1/posts/likepost?post=${blogId}`,
         {
           withCredentials: true,
         }
@@ -128,7 +128,7 @@ const SingleArticle = () => {
     setIsLikeClicked(false);
     try {
       const { data } = await axios.patch(
-        `https://reader-blogging-web.onrender.com/api/v1/posts/unlikepost?post=${blogId}`,
+        `https://reader-mern-web-app.vercel.app/api/v1/posts/unlikepost?post=${blogId}`,
         {
           withCredentials: true,
         }
@@ -144,7 +144,7 @@ const SingleArticle = () => {
       const getRestOfBlogPostsOfThisUser = async () => {
         try {
           const { data } = await axios.get(
-            `https://reader-blogging-web.onrender.com/api/v1/posts/getMoreUserPosts?postId=${newBlogId}&userId=${blogPost?.createdBy}`,
+            `https://reader-mern-web-app.vercel.app/api/v1/posts/getMoreUserPosts?postId=${newBlogId}&userId=${blogPost?.createdBy}`,
             {
               withCredentials: true,
             }
