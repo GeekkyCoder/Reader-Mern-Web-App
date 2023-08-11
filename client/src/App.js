@@ -33,7 +33,7 @@ function App() {
   const fetchCurrentUser = async () => {
     dispatch(FETCH_USER_START());
     try {
-      const { data } = await axios.get("https://reader-blogging-web.onrender.com/api/v1/auth/currentUser",{
+      const { data } = await axios.get("https://reader-mern-web-app.vercel.app/api/v1/auth/currentUser",{
         withCredentials:true
       });
       dispatch(FETCH_USER_SUCCESS(data));
