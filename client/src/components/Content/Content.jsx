@@ -38,7 +38,7 @@ const Content = () => {
     dispatch(SET_IS_LOADING());
     try {
       const { data } = await axios.post(
-        "https://reader-blogging-web.onrender.com/api/v1/followers",
+        "https://reader-mern-web-app.vercel.app/api/v1/followers",
         { followerId: userToFollowId },
         {
           withCredentials: true,
@@ -66,7 +66,7 @@ const Content = () => {
 
   const fetchUsers = async () => {
     try{
-    const {data} = await axios.get("https://reader-blogging-web.onrender.com/api/v1/auth/users",{
+    const {data} = await axios.get("https://reader-mern-web-app.vercel.app/api/v1/auth/users",{
       withCredentials:true
     }) 
     dispatch(FETCH_ALL_USERS(data?.users))
