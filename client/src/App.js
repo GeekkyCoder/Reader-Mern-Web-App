@@ -10,13 +10,13 @@ import "./App.css";
 
 import { Box } from "@mui/material";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   FETCH_USER_FAILED,
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
 } from "./store/user/user.actions.js";
-import { userFollowerSelector } from "./store/user/userSelector.js";
+
 import Profile from "./pages/profile/Profile.jsx";
 
 const Header = lazy(() => import("./components/Header/Header.jsx"));
