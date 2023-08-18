@@ -7,6 +7,6 @@
     }
   ],
   "routes":  [
-    {"source": "/(.*)", "dest": "/"}
+    {"source": "/(.*)", "dest": "/index.html"}
   ]
 }
