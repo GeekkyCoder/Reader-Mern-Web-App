@@ -46,14 +46,16 @@ app.use(mongooseSanitize());
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cors({
-  origin:"https://localhost:3000",
+  origin:"http://localhost:3000",
   credentials:true
 }));
 app.use(fileUpload({ useTempFiles: true }));
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world");
+// });
+
+app.use(express.static(path.resolve(__dirname, "..", "./client/build")));
 
 //routes
 app.use("/api/v1/posts", blogRouter);
@@ -62,6 +64,10 @@ app.use("/api/v1/comments", commentRouter);
 app.use("/api/v1/followers", followerRouter);
 app.use("/api/v1/notifications", notificationRouter);
 app.use("/api/v1/save", saveRouter);
+
+app.use("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "./client/build",'./index.html'));
+});
 
 
 // app.use(notFoundMiddleware);

@@ -56,7 +56,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://reader-mern-web-app.vercel.app",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
