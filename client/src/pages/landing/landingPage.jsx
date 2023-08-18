@@ -44,7 +44,7 @@ const LandingPage = () => {
   const currentUser = useSelector(currentUserSelector);
 
   const handleBlogsClick = useCallback(() => {
-    navigate("/content");
+    navigate("/profile/settings");
   },[]);
 
   const fetchImagesFromUnsplash = useCallback(async () => {
