@@ -51,8 +51,6 @@ app.use(cors({
 }));
 app.use(fileUpload({ useTempFiles: true }));
 
-app.use(express.static(path.resolve(__dirname, "..", "./client/build")));
-
 app.get("/", (req, res) => {
   res.send("hello world");
 });
@@ -65,9 +63,6 @@ app.use("/api/v1/followers", followerRouter);
 app.use("/api/v1/notifications", notificationRouter);
 app.use("/api/v1/save", saveRouter);
 
-app.use("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "..", "./client/build",'index.html'));
-});
 
 // app.use(notFoundMiddleware);
 // app.use(errorHandlerMiddleware);
