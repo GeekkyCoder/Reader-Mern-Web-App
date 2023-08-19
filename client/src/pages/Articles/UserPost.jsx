@@ -36,6 +36,7 @@ const UserPost = () => {
           setIsSnackBarOpen(false);
         }, 3000);
       } catch (err) {
+        alert("something went wrong");
         setError(true);
         setIsLoading(false);
         setIsSnackBarOpen(true);
@@ -45,7 +46,7 @@ const UserPost = () => {
       }
     };
     fetchCurrentUserBlogs();
-  }, [isPostDeleted, hasPostBeenEdited,currentUser]);
+  }, [isPostDeleted, hasPostBeenEdited, currentUser]);
 
   return (
     <>
@@ -66,14 +67,14 @@ const UserPost = () => {
         })
       ) : (
         <>
-          {!isLoading && (
-            <Box
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              height={"100vh"}
-              fontWeight={800}
-            >
+          <Box
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            height={"100vh"}
+            fontWeight={800}
+          >
+            {!userPosts.length && (
               <Typography
                 component={"p"}
                 variant="h4"
@@ -84,8 +85,8 @@ const UserPost = () => {
                 {currentUser?.user?.name.split(" ")[0]}, create your first post
                 by clicking on Write Above{" "}
               </Typography>
-            </Box>
-          )}
+            )}
+          </Box>
         </>
       )}
     </>
