@@ -17,7 +17,7 @@ import { LogoText, StyledToolbar } from "./Header.styles";
 
 import { currentUserSelector } from "../../store/user/userSelector";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_USER_LOGOUT } from "../../store/user/user.actions";
+import { FETCH_ALL_USERS, FETCH_USER_FOLLOWERS, SET_USER_LOGOUT } from "../../store/user/user.actions";
 
 import { TOGGLE_ISMODALOPEN } from "../../store/blogs/blogs.actions";
 
@@ -44,6 +44,8 @@ const Header = () => {
           withCredentials: true,
         });
         dispatch(SET_USER_LOGOUT());
+        dispatch(FETCH_ALL_USERS([]))
+        dispatch(FETCH_USER_FOLLOWERS([]))
         setTimeout(() => {
           navigate("/");
           window.location.reload()

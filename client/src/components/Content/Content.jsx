@@ -1,7 +1,7 @@
 import { Alert, Box, Snackbar, Stack, Typography } from "@mui/material";
 import Articles from "../../pages/Articles/Articles";
 import { useDispatch, useSelector } from "react-redux";
-import { allUserSelector, userFollowerSelector } from "../../store/user/userSelector";
+import { allUserSelector, currentUserSelector, userFollowerSelector } from "../../store/user/userSelector";
 import axios from "axios";
 import { FETCH_ALL_USERS, FETCH_USER_FOLLOWERS } from "../../store/user/user.actions";
 import {
@@ -32,6 +32,7 @@ const Content = () => {
   const loadingAction = useSelector(loadingActionSelector);
 
   const followers = useSelector(userFollowerSelector)
+  const currentUser = useSelector(currentUserSelector)
 
 
   const addToFollowing = async (userToFollowId) => {
@@ -77,9 +78,7 @@ const Content = () => {
 
   useEffect(() => {
     fetchUsers()
- },[followers])
-
-
+ },[followers,currentUser])
 
 
   return (
@@ -136,7 +135,7 @@ const Content = () => {
                   />
                 );
               })}
-              {!users.length && <Typography component={'p'} fontWeight={800} variant="p">No one to follow for now</Typography>}
+              {!currentUser &&  <Typography component={'p'} fontWeight={800} variant="p">login to follow other users</Typography>}
           </Box>
         </Box>
       </Stack>

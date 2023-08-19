@@ -23,7 +23,7 @@ const UserPost = () => {
       setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `https://reader-mern-web-app.vercel.app/api/v1/posts/user/posts?user=${currentUser?.user?._id}`,
+          `https://reader-mern-web-app.vercel.app/api/v1/posts/user/posts?user=${currentUser?.user?.userId}`,
           {
             withCredentials: true,
           }
@@ -36,7 +36,7 @@ const UserPost = () => {
           setIsSnackBarOpen(false);
         }, 3000);
       } catch (err) {
-        alert("something went wrong");
+        alert("something went wrong")
         setError(true);
         setIsLoading(false);
         setIsSnackBarOpen(true);
@@ -45,8 +45,10 @@ const UserPost = () => {
         }, 3000);
       }
     };
-    fetchCurrentUserBlogs();
-  }, [isPostDeleted, hasPostBeenEdited, currentUser]);
+    if(currentUser){
+      fetchCurrentUserBlogs();
+    }
+  }, [isPostDeleted, hasPostBeenEdited,currentUser]);
 
   return (
     <>
