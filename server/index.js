@@ -31,6 +31,8 @@ cloudinary.config({
 
 const app = express();
 
+app.use(express.static(path.resolve(__dirname, "..", "./client/build")));
+
 // security
 app.use(
   rateLimiter({
@@ -38,7 +40,8 @@ app.use(
     max: 60,
   })
 );
-app.set("trust proxy", 1);
+
+// app.set("trust proxy", 1);
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(helmet());
 app.use(mongooseSanitize());
@@ -55,8 +58,6 @@ app.use(fileUpload({ useTempFiles: true }));
 //   res.send("hello world");
 // });
 
-app.use(express.static(path.resolve(__dirname, "..", "./client/build")));
-
 //routes
 app.use("/api/v1/posts", blogRouter);
 app.use("/api/v1/auth", authRouter);
@@ -66,14 +67,13 @@ app.use("/api/v1/notifications", notificationRouter);
 app.use("/api/v1/save", saveRouter);
 
 app.use("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "..", "./client/build",'./index.html'));
+  res.sendFile(path.resolve(__dirname, "..", "./client/build",'index.html'));
 });
 
 
 // app.use(notFoundMiddleware);
 // app.use(errorHandlerMiddleware);
 
-// app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connection.on("open", () => {
   console.log("MongoDB connection ready!")

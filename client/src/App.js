@@ -53,16 +53,14 @@ function App() {
       <Box sx={{bgcolor:"ghostwhite"}}>
         <Header />
         <Routes>
-          <Route index element={<LandingPage />}></Route>
-          <Route path="/user/verify-email" element={<VerifyEmail />}>
-            {" "}
-          </Route>
-          <Route path="/profile/settings" element={<ProfileSettings />}></Route>
-          <Route path="/profile/:userId" element={<Profile />}></Route>
+          <Route index element={<LandingPage />} />
+          <Route path="/user/verify-email" element={<VerifyEmail />} />
+          <Route path="/profile/settings" element={<ProfileSettings />} />
+          <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/content">
-            <Route index element={<Content />}></Route>
-            <Route path="blog/:blogId" element={<SingleArticle />}></Route>
-            <Route path="user/blogs" element={<UserPost />}></Route>
+            <Route index element={<Content />} />
+            <Route path="blog/:blogId" element={<SingleArticle />} />
+            <Route path="user/blogs" element={<UserPost />} />
           </Route>
         </Routes>
       </Box>
