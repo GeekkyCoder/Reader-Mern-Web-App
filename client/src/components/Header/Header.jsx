@@ -46,6 +46,7 @@ const Header = () => {
         dispatch(SET_USER_LOGOUT());
         setTimeout(() => {
           navigate("/");
+          window.location.reload()
         }, 2000);
 
         return;
